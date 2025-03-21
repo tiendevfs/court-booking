@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Icons CSS -->
+    <link rel="stylesheet" th:href="@{/css/feather.css}">
+    <link rel="stylesheet" th:href="@{/css/app-light.css}" id="lightTheme">
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}">
+
+</head>
+<body class="light body_custom">
+<div class="wrapper">
+    <div th:replace="~{layout/header.html :: top}"></div>
+    <aside th:replace="~{layout/header.html :: left}"></aside>
+
+    <main role="main" class="main-content main-custom" id="">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 add">
+                    <div class="col-12">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="card-title">Quản lí người dùng</h3>
+                                    <a th:href="@{/dashboard/user/post}" class="btn btn_custom"><span class="fe fe-plus fe-16 mr-0"></span></a>
+                                </div>
+                                <table class="table table-striped table-hover table_custom">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Họ tên</th>
+                                        <th>Email</th>
+                                        <th>Giới tính</th>
+                                        <th>Số điện thoại</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="user : ${users}">
+                                        <td th:text="${user.id}"></td>
+                                        <td th:text="${user.fullname}"></td>
+                                        <td th:text="${user.email}"></td>
+                                        <td th:text="${user.gender}"></td>
+                                        <td th:text="${user.phone}"></td>
+                                        <td>
+                                            <a style="margin-right:10px" href=# class="a_custom check-info"
+                                               data-toggle="modal"
+                                               data-target="#info"
+                                               th:attr="data-id=${user.id}"
+                                            ><i class="fe fe-info fe-16"></i></a>
+                                            <a style="margin-right:10px" href=# class="a_custom"
+                                               data-toggle="modal"
+                                               data-target="#update"
+                                               id="check-update"
+                                               data-id="${user.id}"
+                                            ><i class="fe fe-edit fe-16"></i></a>
+                                            <a style="margin-right:10px" href=# class="a_custom"
+                                               data-toggle="modal"
+                                               data-target="#delete"
+                                               id="check-delete"
+                                               data-id="${user.id}"
+                                            ><i class="fe fe-trash fe-16"></i></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination">
+                                    <a th:classappend="${current == total} ? 'disabled' : ''" 
+                                       th:href="${current < total} ? @{/dashboard/user(page=${current + 1})} : '#'" >
+                                        <i class="fe fe-arrow-right fe-16"></i>
+                                    </a>
+                                    <a th:each="i : ${#numbers.sequence(1, total)}"
+                                       th:href="@{/dashboard/user(page=${total - i + 1}, limit=10)}"
+                                       th:text="${total - i + 1}"
+                                        th:classappend="${current == total - i + 1} ? 'active': ''">
+                                    </a>
+                                    <a th:classappend="${current == 1} ? 'disabled' : ''"
+                                       th:href="${current > 1} ? @{/dashboard/user(page=${current - 1})} : '#'" >
+                                        <i class="fe fe-arrow-left fe-16"></i>
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- .row -->
+            </div> <!-- .container-fluid -->
+        </div>
+    </main> <!-- main -->
+
+<!-- modal information-->
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: 850px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="user_info">Thông tin người dùng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            style="background:#fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-4" id="body_info">
+                </div>
+            </div>
+        </div>
+    </div> <!-- new event modal -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: 400px;height: 300px;margin: 11rem auto;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="delete_user">Thông báo xác nhân xóa người dùng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            style="background:#fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-4">
+                    <button class="btn btn-danger">có</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            style="background:#fff;float: none;margin-left: 20px;">
+                        <span aria-hidden="true">Không</span>
+                </div>
+            </div>
+        </div>
+    </div> <!-- new event modal -->
+</div>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/moment.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/index.js}"></script>
+<script th:src="@{/assets/js/user.js}"></script>
+
+</body>
+</html>

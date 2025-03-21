@@ -1,0 +1,52 @@
+
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link th:href="@{/assets/css/index.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="main_login w-100 h-100">
+    <div class="container container_custom">
+        <div class="image">
+            <img th:src="@{/assets/images/login.svg}" alt="">
+        </div>
+        <form id="form_login" action="/auth/login" method="POST" th:object="${login}" modelAttribute="login">
+            <div class="mb-3">
+                <label for="username" class="form-label">Tài khoản</label>
+                <input th:field="*{username}" type="text" class="form-control" id="username" aria-describedby="usernameHelp" name="username">
+                <span class="form-message" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input th:field="*{password}" type="password" class="form-control" id="password" name="password">
+                <span class="form-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                <span class="form-message" th:if="${loginFailed != null}" th:text="${loginFailed}"></span>
+            </div>
+            <button type="submit" class="btn btn_custom">Đăng nhập</button>
+            <a href="/auth/register" class="a_custom">Đăng kí</a>
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script th:src="@{/assets/js/validator.js}"></script>
+
+<script>
+    // validator({
+    //     form_id: '#form_login',
+    //     rules: [
+    //         validator.isRequired('#username', 'Vui lòng nhập username'),
+    //         validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
+    //     ],
+    // })
+</script>
+
+</html>

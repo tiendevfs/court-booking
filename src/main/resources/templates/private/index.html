@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!--    <link rel="icon" th:href="favicon.ico">-->
+    <title>Trang chủ - Admin</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" th:href="@{/css/simplebar.css}">
+
+    <!-- Icons CSS -->
+    <link rel="stylesheet" th:href="@{/css/feather.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery.steps.css}">
+
+
+    <!-- App CSS -->
+    <link rel="stylesheet" th:href="@{/css/app-light.css}" id="lightTheme">
+    <!-- my css -->
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}">
+
+
+
+</head>
+
+<body class=" light body_custom">
+    <div class="wrapper">
+        <div th:replace="~{layout/header.html :: top}"></div>
+        <aside th:replace="~{layout/header.html :: left}"></aside>
+
+        <main role="main" class="main-content main-custom" id="">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 add">
+
+                        <div class="row items-align-baseline">
+                            <div class="col-sm-4 col-lg-3 col-md-4 col-6">
+                                <div class="card shadow eq-card mb-4 mycard">
+                                    <div class="card-body mb-n3">
+                                        <div class="row items-align-baseline h-100">
+
+                                        </div>
+                                    </div> <!-- .card-body -->
+                                </div> <!-- .card -->
+                            </div> <!-- .row -->
+                            <div class="col-sm-4 col-lg-3 col-md-4 col-6">
+                                <div class="card shadow eq-card mb-4 mycard">
+                                    <div class="card-body mb-n3">
+                                        <div class="row items-align-baseline h-100">
+
+                                        </div>
+                                    </div> <!-- .card-body -->
+                                </div> <!-- .card -->
+                            </div>
+                            <div class="col-sm-4 col-lg-3 col-md-4 col-6">
+                                <div class="card shadow eq-card mb-4 mycard">
+                                    <div class="card-body mb-n3">
+                                        <div class="row items-align-baseline h-100">
+
+                                        </div>
+                                    </div> <!-- .card-body -->
+                                </div> <!-- .card -->
+                            </div>
+                            <div class="col-sm-4 col-lg-3 col-md-4 col-6">
+                                <div class="card shadow eq-card mb-4 mycard">
+                                    <div class="card-body mb-n3">
+                                        <div class="row items-align-baseline h-100">
+
+                                        </div>
+                                    </div> <!-- .card-body -->
+                                </div> <!-- .card -->
+                            </div>
+                        </div> <!-- .col-12 -->
+
+                    </div> <!-- .row -->
+                </div> <!-- .container-fluid -->
+            </div>
+        </main> <!-- main -->
+        <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="varyModalLabel">Thông tin đặt sân</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            style="background:#fff;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form>
+                            <div class="form-group">
+                                <label for="eventTitle" class="col-form-label">Title</label>
+                                <input type="text" class="form-control" id="eventTitle" placeholder="Add event title">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="date-input1">Start Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" id="button-addon-date1"><span
+                                                    class="fe fe-calendar fe-16"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control drgpicker" id="drgpicker-start"
+                                            value="04/24/2020">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="startDate">Start Time</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" id="button-addon-time"><span
+                                                    class="fe fe-clock fe-16"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control time-input" id="start-time"
+                                            placeholder="10:00 AM">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="date-input1">End Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" id="button-addon-date"><span
+                                                    class="fe fe-calendar fe-16"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control drgpicker" id="drgpicker-end"
+                                            value="04/24/2020">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="startDate">End Time</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" id="button-addon-time"><span
+                                                    class="fe fe-clock fe-16"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control time-input" id="end-time"
+                                            placeholder="11:00 AM">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="eventNote" class="col-form-label">Note</label>
+                                <textarea class="form-control" id="eventNote"
+                                    placeholder="Add some note for your event"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="eventType">Event type</label>
+                                    <select id="eventType" class="form-control select2">
+                                        <option value="work">Work</option>
+                                        <option value="home">Home</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="RepeatSwitch" checked>
+                            <label class="custom-control-label" for="RepeatSwitch">All day</label>
+                        </div>
+                        <button type="button" class="btn mb-2 btn-primary">Save Event</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- new event modal -->
+    </div> <!-- .wrapper -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/moment.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+<!-- my js -->
+<script th:src="@{/assets/js/index.js}"></script>
+
+</html>
+
+<style>
+
+</style>

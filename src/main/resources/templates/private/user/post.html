@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Icons CSS -->
+    <link rel="stylesheet" th:href="@{/css/feather.css}">
+    <link rel="stylesheet" th:href="@{/css/app-light.css}" id="lightTheme">
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}">
+
+</head>
+<body class=" light body_custom ">
+<div class="wrapper">
+    <div th:replace="~{layout/header.html :: top}"></div>
+    <aside th:replace="~{layout/header.html :: left}"></aside>
+
+    <main role="main" class="main-content main-custom" id="">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 add">
+                    <div class="col-12">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <form id="add_user" action="/dashboard/user" method="POST"  modelAttribute="request"
+                                      th:object="${request}">
+                                    <div class="mb-3 col-6">
+                                        <label for="username" class="form-label">Tài khoản</label>
+                                        <input th:field="*{username}"  class="form-control" id="username" aria-describedby="usernameHelp" name="username"/>
+                                        <span class="form-message" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                                        <span class="form-message" th:if="${failed != null}" th:text="${failed}"></span>
+
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="password" class="form-label">Mật khẩu</label>
+                                        <input th:field="*{password}" type="password" class="form-control" id="password" name="password">
+                                        <span class="form-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="confirmPassword" class="form-label">Nhập lại mật khẩu</label>
+                                        <input th:field="*{confirmPassword}" type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                                        <span class="form-message" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></span>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="fullname" class="form-label">Họ tên</label>
+                                        <input th:field="*{fullname}" type="text" class="form-control" id="fullname" aria-describedby="usernameHelp" name="fullname">
+                                        <span class="form-message" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></span>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input th:field="*{email}" type="text" class="form-control" id="email" aria-describedby="usernameHelp" name="email">
+                                        <span class="form-message" th:if="${#fields.hasErrors('fullname')}" th:errors="*{email}"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn_custom col-6">Thêm</button>
+                                    <a href="/dashboard/user" class="a_custom col-6">Quay lại</a>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- .row -->
+            </div> <!-- .container-fluid -->
+        </div>
+    </main> <!-- main -->
+
+</div>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/moment.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/index.js}"></script>
+<script th:src="@{/assets/js/user.js}"></script>
+
+</body>
+</html>

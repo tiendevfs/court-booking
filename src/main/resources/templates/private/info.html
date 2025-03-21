@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Icons CSS -->
+    <link rel="stylesheet" th:href="@{/css/feather.css}">
+    <link rel="stylesheet" th:href="@{/css/app-light.css}" id="lightTheme">
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}">
+
+</head>
+<body class="vertical light body_custom collapsed">
+<div class="wrapper">
+    <div th:replace="~{layout/header.html :: top}"></div>
+    <aside th:replace="~{layout/header.html :: left}"></aside>
+
+    <main role="main" class="main-content main-custom" id="">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 add">
+
+                </div> <!-- .row -->
+            </div> <!-- .container-fluid -->
+        </div>
+    </main> <!-- main -->
+
+</div>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/moment.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/index.js}"></script>
+<script th:src="@{/assets/js/user.js}"></script>
+
+</body>
+</html>

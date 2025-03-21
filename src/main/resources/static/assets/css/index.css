@@ -1,0 +1,241 @@
+:root{
+    --btn-color: #F0A04B;
+    --text-color: #888;
+}
+*{
+    font-size:16px;
+}
+.mycard{
+    height: 200px;
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.mycard:hover{
+    background: #ef233c;
+}
+.bolder{
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+.nav-custom .nav-link:hover{
+    background: var(--btn-color) !important;
+    color: #fff !important;
+    border-radius: 5px;
+    transition: 0.19s !important;
+}
+.white{
+    color:#fff !important;
+}
+.text{
+    color: var(--btn-color) !important;
+}
+.my_nav{
+    font-size: 14px;
+}
+
+@media screen and (max-width: 992px) {
+    .topnav_custom{
+        margin-left:0 !important;
+    }
+    .main-custom{
+        margin-left:0 !important;
+    }
+}
+
+a:hover{
+    text-decoration: none;
+    color: #000;
+}
+
+/* login */
+.main_login{
+    background: #f8fafb;
+}
+.main_login .container_custom{
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+.main_login form{
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+}
+.main_login .image{
+    width: 50%;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.btn_custom{
+    background:var(--btn-color);
+    color:#fff;
+    margin-right: 20px;
+}
+.main_login .btn_custom {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.main_login .btn_custom:hover{
+    background: #fff !important;
+    color: var(--btn-color) !important;
+    border:1px solid var(--btn-color)
+}
+.a_custom, .a_custom:hover{
+    color:  var(--text-color);
+}
+.main_login input{
+    background: #edf2f5;
+}
+.form-message{
+    font-size: 14px;
+    color: #ef233c;
+}
+.table_custom th{
+    color: var(--btn-color) !important;
+    font-weight: 600 !important;
+}
+.court_schedule td {
+    border: 1px solid !important;
+    padding: 10px !important;
+    width: 100px !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+}
+
+.is_available {
+    background: #A0C878 !important;
+    color: #DDEB9D !important;
+    content: "Đã được thuê" !important;
+}
+.is_unvailable{
+    background: #EB5B00 !important;
+    color: #F8D7DA !important;
+}
+
+.modal_body .image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;;
+}
+.modal_body img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_body .info_text{
+    font-size: 20px;
+    margin: 10px 90px;
+}
+
+#add_user div{
+    margin: 20px auto !important;
+    padding: 0;
+}
+#add_user button, #add_user a{
+    display: block;
+    margin: 20px auto;
+}
+
+.pagination a{
+    padding: 8px;
+    transition: 0.3s;
+    border-radius: 50%;
+    border: 2px solid #e9ecef;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: var(--text-color);
+    margin-right: 4px;
+}
+
+.pagination{
+    flex-direction: row-reverse;
+}
+.pagination a:hover{
+    background: var(--btn-color);
+    color:#fff;
+}
+.active{
+    background: var(--btn-color);
+    color:#fff !important;
+}
+.disabled{
+
+}
+.dropdown-item:active{
+    background: var(--btn-color) !important;
+}
+/* Giảm kích thước của Datepicker */
+.datepicker {
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    font-size: 14px;
+}
+
+/* Định dạng lại phần chọn ngày */
+.datepicker table {
+    width: 100%;
+}
+
+.datepicker-dropdown {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Chỉnh style ngày được chọn */
+.datepicker table tr td.active {
+    background-color: var(--btn-color) !important;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+/* Ngày hôm nay */
+.datepicker table tr td.today {
+    background-color: var(--btn-color) !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Hiệu ứng hover khi di chuột vào */
+.datepicker table tr td.day:hover {
+    background-color: var(--btn-color) !important;
+    color: white !important;
+}
+
+/* Căn chỉnh phần chọn giờ */
+.bootstrap-datetimepicker-widget {
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Làm nổi bật khi chọn giờ */
+.bootstrap-datetimepicker-widget .timepicker-hour,
+.bootstrap-datetimepicker-widget .timepicker-minute {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--btn-color);
+}
+.bootstrap-datetimepicker-widget.dropdown-menu{
+    width: 20rem;
+}
+.bootstrap-datetimepicker-widget td span{
+    color:var(--btn-color) !important;
+}
+.put-custom .table thead th{
+    color: var(--btn-color)
+}
